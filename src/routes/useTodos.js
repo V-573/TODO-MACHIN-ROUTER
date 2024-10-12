@@ -38,12 +38,25 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
+  const getTodo = (id) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    return todos[todoIndex];
+  }
+
   const completeTodo = (id) => {
     const todoIndex = todos.findIndex(todo => todo.id === id);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
   };
+
+  const editTodo = (id, newText) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    const newTodos = [...todos];
+    newTodos[todoIndex].text = newText;
+    saveTodos(newTodos);
+
+  }
 
   const deleteTodo = (id) => {
     const todoIndex = todos.findIndex(todo => todo.id === id);
@@ -59,7 +72,8 @@ function useTodos() {
     completedTodos,
     searchValue,
     searchedTodos,
-    openModal,
+    // openModal,
+    getTodo,
   };
   
   const stateUpdaters = {
@@ -67,8 +81,9 @@ function useTodos() {
     addTodo,
     completeTodo,
     deleteTodo,
-    setOpenModal,
+    // setOpenModal,
     sincronizeTodos,
+    editTodo
   };
 
   return { state, stateUpdaters };

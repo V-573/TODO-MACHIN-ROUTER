@@ -1,9 +1,36 @@
 import React from 'react';
+import { TodoForm } from '../../iu/TodoForm';
+import { useLocation, useParams } from 'react-router-dom';
+import { useTodos } from '../useTodos';
 
 function EditTodoPage() {
-    return (
-        <p>Editar TODO</p>
-    );
+    const location = useLocation();
+    const params = useParams();
+    const id = Number(params.id);
+
+    const {state, stateUpdaters } = useTodos();
+    const { loading, getTodo } = state;
+    const { editTodo } = stateUpdaters;
+    
+    let todoText;
+    if (location.state?.todo) { //la sintaxis anterior es igual a escribir: location.state && location.state.todo
+        todoText = location.state.todo.text;
+    } else if (loading) {
+    return <p>Cargando...</p>
+    } else {
+        const todo = getTodo(id);
+        todoText = todo.text;
+        
+}
+ return (
+        <TodoForm
+            label="Edita tu TODO"
+            defaultTodoText={todoText}
+            submitText="Editar"
+            submitEvent={(newText)=> editTodo(id, newText)}
+        
+        />
+    );   
 }
 
 export { EditTodoPage };

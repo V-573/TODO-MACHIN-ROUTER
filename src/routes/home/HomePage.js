@@ -8,12 +8,15 @@ import { TodoItem } from '../../iu/TodoItem';
 import { TodosError } from '../../iu/TodosError';
 import { TodosLoading } from '../../iu/TodosLoading';
 import { EmptyTodos } from '../../iu/EmptyTodos';
-import { TodoForm } from '../../iu/TodoForm';
+// import { TodoForm } from '../../iu/TodoForm';
 import { CreateTodoButton } from '../../iu/CreateTodoButton';
-import { Modal } from '../../iu/Modal';
+// import { Modal } from '../../iu/Modal';
 import { ChangeAlert } from '../../iu/ChangeAlert';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
+
+  const navigate = useNavigate();
   const { state, stateUpdaters } = useTodos();
 
   const {
@@ -22,13 +25,13 @@ function HomePage() {
     searchedTodos,
     totalTodos,
     completedTodos,
-    openModal,
+  //  openModal,
     searchValue,
   } = state;
 
   const {
-    setOpenModal,
-    addTodo,
+  //  setOpenModal,
+    //addTodo,
     completeTodo,
     deleteTodo,
     setSearchValue,
@@ -66,24 +69,32 @@ function HomePage() {
             key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onEdit={() => console.log("puedes editar!!!")}
+            onEdit={() => {
+              navigate(
+                '/edit/' + todo.id, {
+                state: { todo }
+              },
+              );
+            }}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => deleteTodo(todo.id)}
           />
         )}
       </TodoList>
 
-      {!!openModal && (
+      {/* {!!openModal && (
         <Modal>
           <TodoForm
             addTodo={addTodo}
             setOpenModal={setOpenModal}
           />
         </Modal>
-      )}
+      )} */}
 
       <CreateTodoButton
-        setOpenModal={setOpenModal}
+        // setOpenModal={setOpenModal}
+        onClick={()=>navigate('/new')}
+
       />
 
       <ChangeAlert
