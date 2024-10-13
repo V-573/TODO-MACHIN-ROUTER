@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/TODO-MACHIN-ROUTER/static/css/main.42de266c.chunk.css",
+    "main.js": "/TODO-MACHIN-ROUTER/static/js/main.e96f8197.chunk.js",
+    "main.js.map": "/TODO-MACHIN-ROUTER/static/js/main.e96f8197.chunk.js.map",
+    "runtime-main.js": "/TODO-MACHIN-ROUTER/static/js/runtime-main.b6c0eeb9.js",
+    "runtime-main.js.map": "/TODO-MACHIN-ROUTER/static/js/runtime-main.b6c0eeb9.js.map",
+    "static/js/2.26fefeb1.chunk.js": "/TODO-MACHIN-ROUTER/static/js/2.26fefeb1.chunk.js",
+    "static/js/2.26fefeb1.chunk.js.map": "/TODO-MACHIN-ROUTER/static/js/2.26fefeb1.chunk.js.map",
+    "index.html": "/TODO-MACHIN-ROUTER/index.html",
+    "static/css/main.42de266c.chunk.css.map": "/TODO-MACHIN-ROUTER/static/css/main.42de266c.chunk.css.map",
+    "static/js/2.26fefeb1.chunk.js.LICENSE.txt": "/TODO-MACHIN-ROUTER/static/js/2.26fefeb1.chunk.js.LICENSE.txt",
+    "static/media/check.fa4fb594.svg": "/TODO-MACHIN-ROUTER/static/media/check.fa4fb594.svg",
+    "static/media/delete.331149da.svg": "/TODO-MACHIN-ROUTER/static/media/delete.331149da.svg",
+    "static/media/edit.4bf7389a.svg": "/TODO-MACHIN-ROUTER/static/media/edit.4bf7389a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6c0eeb9.js",
+    "static/js/2.26fefeb1.chunk.js",
+    "static/css/main.42de266c.chunk.css",
+    "static/js/main.e96f8197.chunk.js"
+  ]
+}
