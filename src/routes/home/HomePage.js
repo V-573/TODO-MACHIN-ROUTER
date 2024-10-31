@@ -8,9 +8,7 @@ import { TodoItem } from '../../iu/TodoItem';
 import { TodosError } from '../../iu/TodosError';
 import { TodosLoading } from '../../iu/TodosLoading';
 import { EmptyTodos } from '../../iu/EmptyTodos';
-// import { TodoForm } from '../../iu/TodoForm';
 import { CreateTodoButton } from '../../iu/CreateTodoButton';
-// import { Modal } from '../../iu/Modal';
 import { ChangeAlert } from '../../iu/ChangeAlert';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,13 +23,10 @@ function HomePage() {
     searchedTodos,
     totalTodos,
     completedTodos,
-  //  openModal,
     searchValue,
   } = state;
 
   const {
-  //  setOpenModal,
-    //addTodo,
     completeTodo,
     deleteTodo,
     setSearchValue,
@@ -68,7 +63,9 @@ function HomePage() {
           <TodoItem
             key={todo.id}
             text={todo.text}
-            completed={todo.completed}
+            completed={todo.completed}// represena fisicamente el chulito y si esta en verde es porque
+            //se marco como tarea realizada y si esta en gris es porque aun no se ha realizado
+ // osea que completed representa un estado del todo
             onEdit={() => {
               navigate(
                 '/edit/' + todo.id, {
@@ -76,21 +73,13 @@ function HomePage() {
               },
               );
             }}
-            onComplete={() => completeTodo(todo.id)}
+            onComplete={() => completeTodo(todo.id)}// esta funcion es cuando se da click en el chulo para marcar como tarea completada
             onDelete={() => deleteTodo(todo.id)}
           />
         )}
       </TodoList>
 
-      {/* {!!openModal && (
-        <Modal>
-          <TodoForm
-            addTodo={addTodo}
-            setOpenModal={setOpenModal}
-          />
-        </Modal>
-      )} */}
-
+ 
       <CreateTodoButton
         // setOpenModal={setOpenModal}
         onClick={()=>navigate('/new')}

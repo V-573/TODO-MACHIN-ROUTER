@@ -10,14 +10,13 @@ function useTodos() {
     error,
   } = useLocalStorage('TODOS_V2', []);
   const [searchValue, setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false);
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
   let searchedTodos = [];
 
-  if (!searchValue.length >= 1) {
+  if (searchValue.length === 0) {
     searchedTodos = todos;
   } else {
     searchedTodos = todos.filter(todo => {
@@ -72,17 +71,15 @@ function useTodos() {
     completedTodos,
     searchValue,
     searchedTodos,
-    // openModal,
     getTodo,
   };
   
   const stateUpdaters = {
     setSearchValue,
     addTodo,
+    sincronizeTodos,
     completeTodo,
     deleteTodo,
-    // setOpenModal,
-    sincronizeTodos,
     editTodo
   };
 
@@ -99,3 +96,6 @@ function newTodoId(todoList) {
   return idMax + 1;
 }
 export { useTodos };
+
+
+// centraliza toda la  logica de manejo de TODOS, desde la creacion hasta la busqueda y edicion, utilizando useLocalSStorage para persistir datos
